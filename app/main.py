@@ -16,7 +16,7 @@ class ProfanityBot(Client):
     async def on_message(self, message):
         if self.user == message.author:
             return
-        
+
         logger.info(f'{message.author}: {message.content}')
 
         if self.profanity_filter.is_profane(message.content):
