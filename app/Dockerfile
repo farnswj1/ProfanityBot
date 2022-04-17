@@ -8,11 +8,11 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # add application and install dependencies
-COPY Pipfile Pipfile.lock ./
 RUN pip install pipenv
+COPY Pipfile Pipfile.lock ./
 RUN pipenv install --system --deploy --ignore-pipfile
-COPY . ./
 RUN python -m spacy download en_core_web_sm
+COPY . ./
 
 # run the program
 CMD ["supervisord", "-c", "supervisord.conf"]

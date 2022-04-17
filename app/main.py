@@ -14,13 +14,9 @@ class ProfanityBot(Client):
         logger.info(f'{self.user} is online!')
 
     async def on_message(self, message):
-        if self.user == message.author:
-            return
-
-        logger.info(f'{message.author}: {message.content}')
-
-        if self.profanity_filter.is_profane(message.content):
-            await message.channel.send('Watch your mouth!')
+        if self.user != message.author and self.profanity_filter.is_profane(message.content):
+            logger.info(f'{message.author}: {message.content}')
+            await message.channel.send(f'Watch your mouth, {message.author.mention}!')
 
 
 if __name__ == '__main__':
