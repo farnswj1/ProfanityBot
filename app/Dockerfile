@@ -1,5 +1,5 @@
 # base image
-FROM python:3.8
+FROM python:3.8-slim-bullseye
 
 # set environment variables
 ENV PYTHONUNBUFFERED 1
