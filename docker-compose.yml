@@ -1,9 +1,8 @@
-version: "3.2"
 services:
-  profanitybot:
-    container_name: profanitybot
-    image: profanitybot
-    build: profanitybot
+  app:
+    container_name: app
+    image: app
+    build: app
     restart: always
     env_file:
-      - ./profanitybot/.env
+      - ./app/.env
