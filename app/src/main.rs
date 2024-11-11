@@ -24,7 +24,7 @@ impl EventHandler for Handler {
             return;
         }
 
-        info!("{}: {}", msg.author.name, msg.content);
+        info!("{}: {}", msg.author.tag(), msg.content);
         let response = format!("Watch your mouth, {}!", msg.author.mention());
         let dm = msg.channel_id.say(&context.http, response).await;
 
